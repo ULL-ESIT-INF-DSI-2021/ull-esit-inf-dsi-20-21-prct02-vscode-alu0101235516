@@ -15,13 +15,13 @@
 
   Si está trabajando en una distribución Linux Debian/Ubuntu puede instalarlo haciendo uso del siguiente comando:
     
-    1. Abrir una terminal.
-    2. Escribir el siguiente comando:
+    1. Abrir una terminal y escribir los siguiente:
         
   ```bash
   adrian@ubuntu:~$ sudo apt install code
   ```
-    3. En el caso de que no se instale con lo anterior, te pedirá hacer uso de la snap, que se instala de la siguiente manera:
+  
+    2. En el caso de que no se instale con lo anterior, te pedirá hacer uso de la snap, que se instala de la siguiente manera:
     
   ```bash
   adrian@ubuntu:~$ sudo snap install code --classic
