@@ -30,9 +30,9 @@
 ### Pasos a seguir para la configuración de **Visual Studio Code**.
 #### Conexión a una máquina remota por SSH desde VSCode.
 
-  En este apartado, trataremos de configurar **Visual Studio Code** para conectarnos por `SSH` a nuestra máquina remota del IaaS. Para poder hacer esto, tendremos que realizar la [**Práctica 1: Configuración de máquina virtual del IaaS**](https://ull-esit-inf-dsi-2021.github.io/prct01-iaas/) previamente, si no es así, le recomiendo que la complete antes de seguir con estos pasos.
+   En este apartado, trataremos de configurar **Visual Studio Code** para conectarnos por `SSH` a nuestra máquina remota del IaaS. Para poder hacer esto, tendremos que realizar la [**Práctica 1: Configuración de máquina virtual del IaaS**](https://ull-esit-inf-dsi-2021.github.io/prct01-iaas/) previamente, si no es así, le recomiendo que la complete antes de seguir con estos pasos.
   
-  Una vez tengamos hecha dicha práctica, podemos asegurar que se puede hacer una conexión `SSH` desde nuestra máquina local a la máquina virtual del IaaS.
+   Una vez tengamos hecha dicha práctica, podemos asegurar que se puede hacer una conexión `SSH` desde nuestra máquina local a la máquina virtual del IaaS.
   
    Lo primero que tenemos que hacer es instalar la extensión de **VSC** denominada `Remote - SSH`. Si por el casual, no sabe como instalar extensiones en **Visual Studio Code**, lo puede aprender con el [Extension Marketplace de VSCode](https://code.visualstudio.com/docs/editor/extension-gallery).
    
@@ -70,3 +70,118 @@
    Cuando tengamos creada nuestra sesión, simplemente tendremos que compartir el enlace con otros estudiantes y probar las diferentes funcionalidades que nos brinda VSCode.
    
 #### Primer proyecto en TypeScript: "Hola Mundo".
+
+   Antes de comenzar tendremos que instalar unas extensiones en nuestro Visual Studio:
+    >> **VIM**.
+    >> **ESLint**. Permite realizar comprobaciones de estilo sobre ficheros que incluyan código fuente en JavaScript y TypeScript.
+    
+   1. Instalaremos el compilador de TypeScript. Para ello usaremos npm:
+   
+````bash
+[~()]$npm install --global typescript
+
+added 1 package, and audited 2 packages in 2s
+
+found 0 vulnerabilities
+[~()]$tsc --version
+Version 4.1.3
+````
+   2. Después de instalar el compilador, tendremos que irnos a una terminal de VSCode `Ctrl + Shift + ^` y escribir los siguientes comandos:
+   
+````bash
+[~()]$pwd
+/home/usuario
+[~()]$mkdir hello-world
+[~()]$cd hello-world/
+[~/hello-world()]$npm init --yes
+Wrote to /home/usuario/hello-world/package.json:
+
+{
+  "name": "hello-world",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
+
+[~/hello-world()]$ls -lrtha
+total 12K
+drwxr-xr-x 26 usuario usuario 4,0K feb  9 18:46 ..
+drwxrwxr-x  2 usuario usuario 4,0K feb  9 18:48 .
+-rw-rw-r--  1 usuario usuario  225 feb  9 18:48 package.json
+[~/hello-world()]$
+````
+
+  El comando `npm init --yes` permite crear un fichero denominado `package.json`, el cual se utiliza, entre otras cosas, para establecer las dependencias de desarrollo y ejecución del proyecto a modo de paquetes de los que depende el proyecto actual. Puede observar el contenido de dicho fichero como parte de la salida del comando `npm init`.
+  
+  3. Abra el directorio `~/hello-world` en el explorador de VSCode, para poder hacer esto tendremos que ir a `File` y hacer click en `Open Folder...` y seleccionamos `hello-world`. También es recomendable añadir el espacio de trabajo, para ello, vamos de nuevo a `File` y seleccionamos `Add Folder to Workspace...` y seleccionamos `hello-world` en el menú desplegable. Cuando lo tengamos creado, lo tendremos que guardar, vamos de nuevo a `File` y esta vez, seleccionamos `Save Workspace As...`, le ponemos el nombre que queremas y confirmamos.
+  
+  4. Cree un nuevo fichero en el directorio `hello-world` denominado `tsconfig.json`. En dicho fichero se especifican las opciones del compilador de TypeScript. Incluya las siguientes líneas en dicho fichero:
+  
+````bash
+[~/hello-world()]$touch tsconfig.json
+[~/hello-world()]$cat tsconfig.json 
+{
+  "compilerOptions": {
+    "target": "ES2018",
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "module": "CommonJS"
+  }
+}
+````
+
+  Básicamente, estas opciones de configuración le indican al compilador de TypeScript que, en primer lugar, queremos generar código compatible con uno de los últimos estándares de JavaScript. 
+  - En segundo lugar, que el código JavaScript producto de la compilación se almacenará en un directorio `dist`. 
+  - En tercer lugar, especificamos que el código fuente escrito en TypeScript se encuentra en el directorio `src`. 
+  - Por último, se indica un estándar para cargar código desde ficheros independientes. Más adelante, veremos en mayor detalle el compilador de TypeScript y sus opciones.
+  
+  5. A continuación, añadimos un fichero con código TypeScript:
+  
+````bash
+  [~/hello-world()]$pwd
+/home/usuario/hello-world
+[~/hello-world()]$mkdir src
+[~/hello-world()]$cd src
+[~/hello-world/src()]$touch index.ts
+[~/hello-world/src()]$ls
+index.ts
+````
+
+  6. Ahora dentro del `index.ts` añadimos el siguiente código:
+  
+````TypeScript
+let myString: string = "Hola Mundo";
+console.log(myString);
+````
+
+  7. Pasamos a compilar el código en la terminal de VSCode:
+  
+````bash
+[~/hello-world()]$tsc
+````
+  Lo anterior habrá creado el directorio `dist`, además del fichero `index.js` en su interior.
+ 
+ Hay una funcionalidad muy interesante, para ver la diferencia entre el código del `index.js`y el `index.ts`, y es el uso del comando `diff`.
+ 
+ ````bash
+ [~/hello-world()]$diff src/index.ts dist/index.js 
+1c1
+< let myString: string = "Hola Mundo";
+---
+> let myString = "Hola Mundo";
+````
+
+  Aqui podemos ver la diferencia entre JavaScript y TypeScript, y es la ausencia de `myString`, esto es porque **TypeScript** utiliza tipos para tratar de evitar los problemas que surgen con **JavaScript** el cual no es un lenguaje tipado.
+  
+  8. Finalmente pasamos a ejecutar el código de JavaScript generado a partir del código que hicimos en TypeScript.
+  
+````bash
+ [~/hello-world()]$node dist/index.js
+Hola Mundo
+````
