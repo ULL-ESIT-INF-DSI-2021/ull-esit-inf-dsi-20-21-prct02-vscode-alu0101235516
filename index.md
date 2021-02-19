@@ -185,11 +185,11 @@ console.log(myString);
  [~/hello-world()]$node dist/index.js
 Hola Mundo
 ````
-#### _**Conclusión.**_
+### _**Conclusión.**_
 
 En lo que a mi respecta, creo que ha sido muy interesante la realización de esta práctica. Como usuario de VSCode, he descubierto grandes utilidades que tenía el VSCode y desconocía, tanto el SSH con la consolo de nuestra máquina IaaS, como el trabajo en grupo, es decir, las colaboraciones. Por otro lado, creo que aprender a utilizar en más profundidad JavaScript y TypeScript, me ayudará muchísimo a conseguir mi objetivo de ser desarrollador.
 
-#### _**Bibliografía.**_
+### _**Bibliografía.**_
 
 Nombre | Enlaces
 -------|--------
