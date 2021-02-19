@@ -3,15 +3,15 @@
 #### ADRIAN HERNANDEZ SUAREZ - alu0101235516@ull.edu.es
 
 
-### Introducción.
+### _**Introducción.**_
 
   Para poder llevar a cabo este informe, **Práctica 2: Instalación y Configuración de Visual Studio Code**, hemos tenido que desarrollar varias aptitudes acerca de **Visual Studio Code**, tales como añadir extensiones o la conexión `SSH` a nuestra máquina virtual desde el propio **VSC**. Además de iniciarnos un poco con **JavaScript** y **TypeScript** realizando un `Hola Mundo`.
 
-### Objetivos.
+### _**Objetivos.**_
 
   Los objetivos de esta práctica han sido por un lado instalar **Visual Studio Code** y configurarlo para poder conectarnos a nuestra máquina por `SSH` desde la propia terminal de **VSC**, y por otro lado hacer uso de las sesiones colaborativas y el primer `Hola Mundo` en **TypeScript**.
   
-### Pasos a seguir para la instalación de **Visual Studio Code**.
+### _**Pasos a seguir para la instalación de **Visual Studio Code**.**_
 
   Si está trabajando en una distribución Linux Debian/Ubuntu puede instalarlo haciendo uso del siguiente comando:
     
@@ -27,7 +27,7 @@
   adrian@ubuntu:~$ sudo snap install code --classic
   ```
         
-### Pasos a seguir para la configuración de **Visual Studio Code**.
+### _**Pasos a seguir para la configuración de **Visual Studio Code**.**_
 #### Conexión a una máquina remota por SSH desde VSCode.
 
    En este apartado, trataremos de configurar **Visual Studio Code** para conectarnos por `SSH` a nuestra máquina remota del IaaS. Para poder hacer esto, tendremos que realizar la [**Práctica 1: Configuración de máquina virtual del IaaS**](https://ull-esit-inf-dsi-2021.github.io/prct01-iaas/) previamente, si no es así, le recomiendo que la complete antes de seguir con estos pasos.
@@ -55,7 +55,7 @@
    [~()]$
    ````
    
-#### Sesiones colaborativas con Visual Studio Live Share.
+#### _**Sesiones colaborativas con Visual Studio Live Share.**_
 
    Visual Studio Live Share permite colaborar en las tareas de desarrollo en tiempo real. Para poder utilizarlo, en primer lugar, debe buscar e instalar la extensión denominada [Live Share Extension Pack](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare-pack).
    
@@ -69,7 +69,7 @@
    
    Cuando tengamos creada nuestra sesión, simplemente tendremos que compartir el enlace con otros estudiantes y probar las diferentes funcionalidades que nos brinda VSCode.
    
-#### Primer proyecto en TypeScript: "Hola Mundo".
+#### _**Primer proyecto en TypeScript: "Hola Mundo".**_
 
    Antes de comenzar tendremos que instalar unas extensiones en nuestro Visual Studio:
     >> **VIM**.
@@ -185,11 +185,11 @@ console.log(myString);
  [~/hello-world()]$node dist/index.js
 Hola Mundo
 ````
-#### Conclusión.
+#### _**Conclusión.**_
 
 En lo que a mi respecta, creo que ha sido muy interesante la realización de esta práctica. Como usuario de VSCode, he descubierto grandes utilidades que tenía el VSCode y desconocía, tanto el SSH con la consolo de nuestra máquina IaaS, como el trabajo en grupo, es decir, las colaboraciones. Por otro lado, creo que aprender a utilizar en más profundidad JavaScript y TypeScript, me ayudará muchísimo a conseguir mi objetivo de ser desarrollador.
 
-#### Bibliografía.
+#### _**Bibliografía.**_
 
 Nombre | Enlaces
 -------|--------
